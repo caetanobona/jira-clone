@@ -1,3 +1,7 @@
+# Jira clone made with Next.js, Tailwind, Hono.js
+### Made following the tutorial from [Code With Antonio](https://www.youtube.com/watch?v=Av9C7xlV0fA)
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
