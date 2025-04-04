@@ -65,32 +65,54 @@ export const SignUpCard = () => {
 			</div>
 			<CardContent className="p-7">
 				<Form {...form}>
-					<form className="space-y-4">
-						<Input
-							required
-							type="text"
-							value={""}
-							onChange={() => {}}
-							placeholder="Enter your name"
-							disabled={false}
+					<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+					<FormField
+							name="name"
+							control={form.control}
+							render={({ field }) => (
+								<FormItem>
+									<FormControl>
+										<Input
+											{...field}
+											type="text"
+											placeholder="Enter your name"
+										/>
+									</FormControl>
+									<FormMessage/>
+								</FormItem>
+							)}
 						/>
-						<Input
-							required
-							type="email"
-							value={""}
-							onChange={() => {}}
-							placeholder="Enter email adress"
-							disabled={false}
+						<FormField
+							name="email"
+							control={form.control}
+							render={({ field }) => (
+								<FormItem>
+									<FormControl>
+										<Input
+											{...field}
+											type="email"
+											placeholder="Enter email adress"
+										/>
+									</FormControl>
+									<FormMessage/>
+								</FormItem>
+							)}
 						/>
-						<Input
-							required
-							type="password"
-							value={""}
-							onChange={() => {}}
-							placeholder="Enter password"
-							disabled={false}
-							min={8}
-							max={256}
+						<FormField
+							name="password"
+							control={form.control}
+							render={({ field }) => (
+								<FormItem>
+									<FormControl>
+										<Input
+											{...field}
+											type="password"
+											placeholder="Enter password"
+										/>
+									</FormControl>
+									<FormMessage/>
+								</FormItem>
+							)}
 						/>
 						<Button disabled={false} size="lg" className="w-full">
 							Log In
@@ -120,6 +142,17 @@ export const SignUpCard = () => {
 					<FaGithub  className="mr-2 size-5"/>
 					Login With Github
 				</Button>
+			</CardContent>
+			<div className="px-7">
+				<DottedSeparator />
+			</div>
+			<CardContent className="p-7 flex items-center justify-center">
+				<p>
+					Already have have an account?
+					<Link href="/sign-up">
+						<span className="text-blue-700">&nbsp;Sign In</span>
+					</Link>
+				</p>
 			</CardContent>
     </Card>
   );
