@@ -77,7 +77,7 @@ export const SignInCard = () => {
 									<FormControl>
 										<Input
 											{...field}
-											type="passowrd"
+											type="password"
 											placeholder="Enter password"
 										/>
 									</FormControl>
