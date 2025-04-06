@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import Providers from "@/components/query-provider";
 
 import "./globals.css";
 
@@ -23,7 +24,9 @@ export default function RootLayout({
       <body
         className={cn(inter.className, "min-h-screen")}
       >
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
