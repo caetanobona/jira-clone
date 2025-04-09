@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { cn } from "@/lib/utils";
-import Providers from "@/components/query-provider";
+import QueryProvider from "@/components/query-provider"
+import { Toaster } from "@/components/ui/sonner";
 
 import "./globals.css";
 
@@ -24,9 +25,10 @@ export default function RootLayout({
       <body
         className={cn(inter.className, "min-h-screen")}
       >
-        <Providers>
+        <QueryProvider>
+          <Toaster />
           {children}
-        </Providers>
+        </QueryProvider>
       </body>
     </html>
   );
