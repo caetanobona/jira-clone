@@ -46,7 +46,12 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
       image: values.image instanceof File ? values.image : "" // zodValidator(createWorkspaceSchema) will treat "" as undefined
     }
 
-    mutate({ form: finalValues })
+    mutate({ form: finalValues }, {
+      onSuccess: () => {
+        form.reset();
+        // TODO : Redirect to new workspace
+      }
+    })
   }
 
   const handleImageChange = (e : React.ChangeEvent<HTMLInputElement>) => {
@@ -87,7 +92,7 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                   </FormItem>
                 )}      
               />
-              <FormField 
+              {/* <FormField  --> removed input for images because retrieving files from appwrite's storage is a paid feature
                 control={form.control}
                 name="image"
                 render={({ field }) => (
@@ -140,7 +145,7 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                     </div>
                   </div>
                 )}
-              />
+              /> */}
             </div>
             <DottedSeparator className="py-7"/>
             <div className="flex items-center justify-between">

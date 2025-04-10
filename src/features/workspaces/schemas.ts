@@ -7,3 +7,7 @@ export const createWorkspaceSchema = z.object({
     z.string().transform((value) => value === "" ? undefined : value)
   ]).optional()
 })
+
+export const getWorkspaceImageSchema = z.object({
+  imageId : z.string().trim().max(20)
+})
