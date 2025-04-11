@@ -44,7 +44,7 @@ if ( !user ) {
           </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" side="bottom" className="w-60 shadow-md rounded-xl" sideOffset={10}>
+      <DropdownMenuContent align="end" side="bottom" className="w-60 shadow-md rounded-xl bg-white overflow-hidden" sideOffset={10}>
         <div className="flex flex-col items-center justify-center gap-2 px-2.5 py-4">
           <Avatar className="size-[52px] transition border border-neutral-300">
             <AvatarFallback className="bg-neutral-200 text-xl font-medium text-neutral-500 flex items-center justify-center">
@@ -60,12 +60,12 @@ if ( !user ) {
             </p>
           </div>
         </div>
-        <DottedSeparator className="mb-1"/>
+        <DottedSeparator className=""/>
         <DropdownMenuItem
-          className="h-10 flex items-center justify-center text-amber-700 font-medium border-none cursor-pointer hover:bg-neutral-100"
+          className="h-10 flex items-center justify-center text-amber-700 font-medium border-none cursor-pointer hover:bg-neutral-100 hover:border-none"
           onClick={() => logout()}
         >
-          <LogOut className="size-4 mr-2 border-none"/>
+          <LogOut className="size-4 mr-2"/>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
