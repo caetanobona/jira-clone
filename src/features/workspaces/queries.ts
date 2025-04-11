@@ -14,7 +14,7 @@ export const getWorkspaces = async () => {
 
     const session = await cookies().get(AUTH_COOKIE)
 
-    if (!session) return { documents : [], total : 0 };
+    if (!session) return { documents : [], total : 0 }; 
 
     client.setSession(session.value);
     const databases = new Databases(client);
@@ -28,7 +28,7 @@ export const getWorkspaces = async () => {
     );
 
     if (members.total == 0) { 
-      return { documents : [], total : 0 }; // returning a plain object (what appwrite would do) instead of a c.json()
+      return { documents : [], total : 0 }; // returning a plain object with no documents (what appwrite would return)
     }
 
     const workspaceIds = members.documents.map((member) => member.workspaceId) 

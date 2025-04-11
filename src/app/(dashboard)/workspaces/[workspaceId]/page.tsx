@@ -1,9 +1,9 @@
-const WoskpaceIdPage = () => {
+const WorkspaceIdPage = () => {
   return ( 
     <div>
-      
+      Workspace page
     </div>
    );
 }
  
-export default WoskpaceIdPage;
+export default WorkspaceIdPage;

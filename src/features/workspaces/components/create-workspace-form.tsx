@@ -23,12 +23,14 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useCreateWorkspace } from "../api/use-create-workspace.ts";
 import { ImageIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface CreateWorkspaceFormProps {
   onCancel? : () => void;
 };
 
 export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
+  const router = useRouter();
   const { mutate, isPending } = useCreateWorkspace();
 
   const inputRef = useRef<HTMLInputElement>(null)
@@ -43,13 +45,13 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
   const onSubmit = (values : z.infer<typeof createWorkspaceSchema>) => {
     const finalValues = {
       ...values,
-      image: values.image instanceof File ? values.image : "" // zodValidator(createWorkspaceSchema) will treat "" as undefined
+      image: values.image instanceof File ? values.image : ""
     }
 
     mutate({ form: finalValues }, {
-      onSuccess: () => {
+      onSuccess: ({ data }) => { // data object is type-safe because of hono
         form.reset();
-        // TODO : Redirect to new workspace
+        router.push(`/workspaces/${data.$id}`) // redirecting the user to the created workspace
       }
     })
   }
